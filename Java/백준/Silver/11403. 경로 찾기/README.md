@@ -26,3 +26,6 @@
 
  <p>총 N개의 줄에 걸쳐서 문제의 정답을 인접행렬 형식으로 출력한다. 정점 i에서 j로 가는 길이가 양수인 경로가 있으면 i번째 줄의 j번째 숫자를 1로, 없으면 0으로 출력해야 한다.</p>
 
+### Design
+<img width="926" height="642" alt="image" src="https://github.com/user-attachments/assets/6653a56b-38e7-47a0-9264-2dda23cfa742" />
+
