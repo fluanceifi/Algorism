@@ -42,3 +42,6 @@ RRRRR</pre>
 
  <p>적록색약이 아닌 사람이 봤을 때의 구역의 개수와 적록색약인 사람이 봤을 때의 구역의 수를 공백으로 구분해 출력한다.</p>
 
+### 설계
+<img width="924" height="641" alt="image" src="https://github.com/user-attachments/assets/01009fb7-a73e-4edc-b681-c031e24bd4da" />
+
