@@ -44,3 +44,6 @@
 
  <p>100번 칸에 도착하기 위해 주사위를 최소 몇 번 굴려야 하는지 출력한다.</p>
 
+### Design
+<img width="921" height="647" alt="image" src="https://github.com/user-attachments/assets/e12b47a2-025c-4d34-bff1-1c3d69191a33" />
+
