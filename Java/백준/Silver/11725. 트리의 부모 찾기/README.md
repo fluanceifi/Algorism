@@ -26,3 +26,5 @@
 
  <p>첫째 줄부터 N-1개의 줄에 각 노드의 부모 노드 번호를 2번 노드부터 순서대로 출력한다.</p>
 
+### Desgin
+<img width="1807" height="1283" alt="image" src="https://github.com/user-attachments/assets/353adb2e-2d15-4c86-9316-3e1d0f18f91d" />
