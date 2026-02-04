@@ -30,3 +30,6 @@
 
  <p>첫째 줄에 수열 A의 가장 긴 증가하는 부분 수열의 길이를 출력한다.</p>
 
+### desgin
+
+<img width="1964" height="1344" alt="image" src="https://github.com/user-attachments/assets/bb218144-2d57-48c5-a552-029c75cd7437" />
