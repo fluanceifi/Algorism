@@ -34,3 +34,6 @@
 
  <p>각 테스트 케이스 마다, 2n개의 스티커 중에서 두 변을 공유하지 않는 스티커 점수의 최댓값을 출력한다.</p>
 
+### Design
+<img width="1729" height="1208" alt="image" src="https://github.com/user-attachments/assets/4201e846-0733-44cd-89f3-d09904329801" />
+
