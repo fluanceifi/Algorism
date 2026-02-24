@@ -28,6 +28,10 @@
 
 <p>입력으로 주어지는 모든 수는 정수이다.</p>
 
+### 설계
+<img width="803" height="925" alt="image" src="https://github.com/user-attachments/assets/10c734a2-5b0e-4cf1-b512-8216c9c2a758" />
+
+
 ### 출력 
 
  <p>한 줄에 배낭에 넣을 수 있는 물건들의 가치합의 최댓값을 출력한다.</p>
