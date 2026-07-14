@@ -1,20 +1,35 @@
+import java.util.*;
+
 class Solution {
     boolean solution(String s) {
-        boolean answer = true;
-        int cnt = 0;
+        // 1. Stack 초기화
+        // 2. ( 면 삽입,  ) 면 조회 후 , pop
+        
+        boolean check = true;
+        Stack<Character> stack = new Stack<>();
         
         for(int i = 0 ; i < s.length() ; i++){
-            if(s.charAt(i) == '(')
-                cnt++;
-            else
-                cnt--;
+            char c = s.charAt(i);
             
-            if(cnt < 0)
-                answer = false;
+            if(c == '(') {
+                stack.push(c);
+            } else if(c == ')') {
+                if(stack.isEmpty()) {
+                    check = false;
+                    break;
+                } else {
+                    if(stack.peek() == '('){
+                        stack.pop();
+                    }
+                }
+            }
         }
-        if(answer && cnt > 0)
-            answer = false;
         
-        return answer;
+        if(stack.isEmpty()){
+            return check;
+        } else{
+            return false;
+        }
+        
     }
 }
