@@ -1,10 +1,10 @@
 import java.util.*;
 
-class Node {
+class Node{
     int val;
     int loc;
     
-    public Node (int val, int loc) {
+    public Node(int val, int loc) {
         this.val = val;
         this.loc = loc;
     }
@@ -12,41 +12,41 @@ class Node {
 
 class Solution {
     public int solution(int[] priorities, int location) {
-        Queue<Node> q = new LinkedList<>();
+        // 1. Queue에 값을 집어 넣준다. (val = priorities[i], loc = i)
+        // 2. while(!q.isEmpty()) -> Node cur = q.poll() 보다 더 높은 값이 있는지 for문으로 탐색한다.
+        // 3. 있으면 cur를 다시 집어넣는다 or 없으면 cnt를 증가시켜 횟수를 증가시킨다. -> 여기서 loc이 location과 같다면 return cnt;
         
-        /** 세팅 */
+        Queue<Node> q = new LinkedList<>();
+        int cnt = 0;
+        
+        
         for(int i = 0 ; i < priorities.length ; i++) {
-            q.add(new Node(priorities[i], i));
+            q.offer(new Node(priorities[i], i));
         }
         
-        
-        /** 로직 */
-        int cnt = 0;
         while(!q.isEmpty()) {
-            // 1. 하나 꺼내기
             Node cur = q.poll();
+            boolean higher = false;
             
-            // 2. 값 비교하기
-            boolean hasHigher = false;
-            for(Node next : q) {
-                if(cur.val < next.val) {
-                    hasHigher = true;
+            for(Node n : q) {
+                
+                if(cur.val < n.val) {
+                    higher = true;
                     break;
                 }
             }
             
-            // 3. 더 높은게 있다면 다시 넣고, 아니라면 실행횟수 추가하기
-            if(hasHigher){
-                q.add(cur);
-            } else {
+            if(higher){
+                q.offer(cur);
+            }
+            else{
                 cnt++;
                 
-                // 4. 만약, location과 일치하는 Node라면 return
-                if(location == cur.loc) return cnt;
+                if(cur.loc == location) {
+                    return cnt;
+                }
             }
         }
-        
-        /** 예외처리*/
         return -1;
     }
 }
