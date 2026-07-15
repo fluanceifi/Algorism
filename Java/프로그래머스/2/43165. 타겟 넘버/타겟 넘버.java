@@ -1,17 +1,17 @@
 class Solution {
     public int solution(int[] numbers, int target) {
-        int result = dfs(numbers, target, 0, 0);
+        int result = dfs(0, target, 0, numbers);
         
         return result;
     }
     
-    public static int dfs(int[] numbers, int target, int index, int sum) {
-        if(index == numbers.length) {
+    public static int dfs(int idx, int target, int sum, int[] numbers) {
+        if(idx == numbers.length) {
             return sum == target ? 1 : 0;
         }
         
-        int add = dfs(numbers, target, index + 1, sum + numbers[index]);
-        int abs = dfs(numbers, target, index + 1, sum - numbers[index]);
+        int add = dfs(idx + 1, target, sum + numbers[idx], numbers);
+        int abs = dfs(idx + 1, target, sum - numbers[idx], numbers);
         
         return add + abs;
     }
