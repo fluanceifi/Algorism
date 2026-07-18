@@ -3,16 +3,19 @@
 class Solution {
     public static int[] answer;
     
-    public int[] solution(int brown, int yellow) {
-        int total = brown + yellow;
+    public int[] solution(int brown, int yellow) { 
         
-        for(int c = 3 ; c <= total ; c++){
-            if(total % c != 0) continue;
-            int r = total / c;
-            if(r < c) break;
-            if((r-2)*(c-2) == yellow) return new int[]{r, c};
+        for(int i = 1 ; i <= brown + yellow ; i++) {
+            if((brown + yellow) % i == 0) {
+                int r = (brown + yellow) / i;
+                int c = i;
+                
+                if((r - 2) * (c - 2) == yellow) {
+                    answer = new int[]{c, r};
+                }
+            }
         }
         
-        return new int[]{};
+        return answer;
     }
 }
