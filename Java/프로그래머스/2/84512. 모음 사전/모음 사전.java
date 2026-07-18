@@ -1,27 +1,42 @@
 import java.util.*;
 
+// A -> AA -> AAA -> AAAA -> AAAAA -> AAAAE -> AAAAI -> 
+
 class Solution {
+    public static String result;
+    public static int count;
+    public static int answer;
+    public static boolean isFound;
+    public static String[] alphabet = {"A", "E", "I", "O", "U"};
     
-    static List<String> list = new ArrayList<>();    
-    static String[] vowels = {"A", "E", "I", "O", "U"};
-        
     public int solution(String word) {
+        count = 0;
+        answer = 0;
+        isFound = false;
+        result = word;
         
         dfs("");
         
-        return list.indexOf(word) + 1; // 인덱스는 0부터 시작이니깐
+        return answer;
     }
     
-    
-    public static void dfs(String current) {
-        if(current.length() > 5) {
+    public static void dfs(String s) {
+        if(s.length() > 5 || isFound) return;
+        
+        if(!s.equals("")) count++;
+
+        
+        if(result.equals(s)) {
+            isFound = true;
+            answer = count;
             return;
         }
         
-        if(!current.equals("")) list.add(current);
-        
-        for(int i = 0 ; i < 5 ; i++){
-            dfs(current + vowels[i]);
+        for(int i = 0 ; i < alphabet.length ; i++) {
+            if(isFound) return;
+
+            dfs(s+alphabet[i]);
+            
         }
     }
 }
