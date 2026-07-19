@@ -2,37 +2,38 @@ import java.util.*;
 
 class Solution {
     public int solution(int bridge_length, int weight, int[] truck_weights) {
-        // 1. Bridge에 대한 Queue 생성
-        // 2. Bridge 길이만큼 0을 채워 넣음.
-        // 3. truck_weights를 순서대로 삽입함. (매순간 times++;)
-        // 4. 삽입 후, 다음턴에 weight를 넘지 않는가 파악함. (truck_weight[i] + current_weight <= weight)
-        // 5. 넘으면 continue; / 안넘으면 offer(truck_weight[i]) -> current_weight 갱신
+        // 모든 트럭이 다리를 건너려면 최소 몇 초가 걸리는지 알아낸다.
+        // 다리에는 트럭이 최대 bridge_length대 올라갈 수 있다 -> Queue에 bridge_length만큼 0을 넣어둔다.
+        // 다리는 weight 이하까지의 무게를 견딜 수 있습니다. 단, 다리에 완전히 오르지 않은 트럭의 무게는 무시합니다. 
+        // -> for-each로 Queue무게 측정, if(weight >= Queue 무게 + 다음 트럭) q.offer(다음 트럭);
+        // 마지막 트럭은 계산말고 그냥 bridge_length를 더하여 결과를 도출한다.
         
-        Queue<Integer> bridge = new LinkedList<>();
+        Queue<Integer> q = new LinkedList<>();
+        int idx = 0;
+        int times = 0;
         
         for(int i = 0 ; i < bridge_length ; i++) {
-            bridge.offer(0);
+            q.offer(0);
         }
-        
-        int times = 0;
-        int current_weight = 0;
-        int idx = 0;
         
         while(idx < truck_weights.length) {
-            current_weight -= bridge.poll();
+            int current_weights = 0;
             times++;
             
-            if(truck_weights[idx] + current_weight <= weight) {
-                bridge.offer(truck_weights[idx]);
-                current_weight += truck_weights[idx];
-                idx++;
-            } else{
-                bridge.offer(0);
-            }
+            q.poll();
+
+            for(int tw : q) current_weights += tw;
             
+            
+            if(current_weights + truck_weights[idx] <= weight) {
+                q.offer(truck_weights[idx]);
+                idx++;
+            } 
+            else {
+                q.offer(0);
+            }
         }
         
-        return times + bridge_length;
-        
+        return times + bridge_length ;
     }
 }
