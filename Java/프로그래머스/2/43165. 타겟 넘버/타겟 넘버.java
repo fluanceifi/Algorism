@@ -1,18 +1,30 @@
 class Solution {
+    public static int[] numbers;
+    public static int target;
+    public static int answer;
+    public static boolean[] visited;
     public int solution(int[] numbers, int target) {
-        int result = dfs(0, target, 0, numbers);
+        // 더하거나, 빼거나 -> DFS로 가능!
+        this.numbers = numbers;
+        this.target = target;
+        answer = 0;
+        visited = new boolean[numbers.length];
         
-        return result;
+        dfs(0, 0, 0);
+        
+        return answer;
     }
     
-    public static int dfs(int idx, int target, int sum, int[] numbers) {
-        if(idx == numbers.length) {
-            return sum == target ? 1 : 0;
+    public static void dfs(int current, int depth, int idx) {
+        if(current == target && depth == numbers.length ) {
+            answer++;
+            return;
         }
         
-        int add = dfs(idx + 1, target, sum + numbers[idx], numbers);
-        int abs = dfs(idx + 1, target, sum - numbers[idx], numbers);
+        if(idx >= numbers.length) return;
         
-        return add + abs;
-    }
+        dfs(current + numbers[idx], depth + 1 , idx + 1);
+        dfs(current - numbers[idx], depth + 1 , idx + 1);
+        
+    } 
 }
