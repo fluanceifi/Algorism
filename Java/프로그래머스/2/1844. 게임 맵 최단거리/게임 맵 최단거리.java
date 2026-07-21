@@ -65,17 +65,17 @@ class Node {
 class Solution {
     public static int[] dy = {-1, 0 , 1, 0}; //북 동 남 서 
     public static int[] dx = {0, 1, 0 , -1};
-    public static boolean[][] visited;
+//    public static boolean[][] visited;
     
     public int solution(int[][] maps) {
         int n = maps.length;
         int m = maps[0].length;
         
         Queue<Node> queue = new LinkedList<>();
-        visited = new boolean[n][m];
+//        visited = new boolean[n][m];
         
         queue.offer(new Node(0, 0));
-        visited[0][0] = true;
+//        visited[0][0] = true;
         
         while(!queue.isEmpty()){
             Node cur = queue.poll();
